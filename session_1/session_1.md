@@ -47,7 +47,7 @@ Other than the `input` folder, the only other item in the MAWA workspace that yo
 
 After clicking on it (again, it generally helps to do this in a new tab by `Ctrl`-clicking it), the app will open in 2-6 minutes.
 
-As the app opens, if you see a glowing "Warnings" message in the top right, as below, do not worry about it (unless the adjacent number is greater than 1). In addition, if you do not see "Latest" as highlighted in the top left, you will see a prominent banner to restart the app to pick up the latest changes; if so, click on the restart link in the banner to do so:
+As the app opens, if you see a glowing Warnings message in the top right, as below, do not worry about it (unless the adjacent number is greater than 1). In addition, if you do not see Latest as highlighted in the top left, you will see a prominent banner to restart the app to pick up the latest changes; if so, click on the restart link in the banner to do so:
 
 ![warnings](full/warnings.png)
 
@@ -77,7 +77,7 @@ Next, you will see a link for the MAWA documentation. Please keep in mind that t
 
 Finally, you will see an "Advanced:" dropdown menu, reserved for developers and admins.
 
-In the main part of the app, you will see the contents of the first page in the sidebar, which is the "Welcome" or "Home" page. Like the documentation, this page is a work in progress and is meant to provide a brief overview of the app.
+In the main part of the app, you will see the contents of the first page in the sidebar, which is the Welcome or Home page. Like the documentation, this page is a work in progress and is meant to provide a brief overview of the app.
 
 ### Data Import and Export
 
@@ -85,13 +85,13 @@ Now we want to load the data that we previously uploaded into the `input` folder
 
 ![data_import_and_export](full/data_import_and_export.png)
 
-You will see all available datafiles from the `input` folder listed in the "Available input data on NIDAP" table in the top left. To load datafiles for analysis from NIDAP to MAWA, select the datafiles you want to load by clicking on the checkboxes in the "Selected" column and "Load selected NIDAP input data" button.
+You will see all available datafiles from the `input` folder listed in the "📂 Available input data on NIDAP" table in the top left. To load datafiles for analysis from NIDAP to MAWA, select the datafiles you want to load by clicking on the checkboxes in the Selected column and "Load selected NIDAP input data" button.
 
 While the data are being transferred (typically takes a few seconds), you will see the app partially grayed out and "RUNNING..." message in the top right. This is typical behavior while an operation is running in the app. Generally, you should not interrupt the process by pressing the Stop button in the top right:
 
 ![app_running](full/app_running.png)
 
-After the data have been transferred, you will see the datafiles listed in the "Input data in MAWA" table in the top right:
+After the data have been transferred, you will see the datafiles listed in the "📂 Input data in MAWA" table in the top right:
 
 ![input_data_in_mawa](reduced/input_data_in_mawa.png)
 
@@ -103,7 +103,7 @@ Next, we want to combine multiple datafiles into a single dataset, after which w
 
 ![datafile_unification](full/datafile_unification.png)
 
-Steps to perform on this page, in sequence, will be identified by bright blue numbers. In section "1: Select datafile(s)", we will select the datafiles we want to combine by clicking on the checkboxes in the "Selected" column and then pressing the "Combine selected files into single dataframe" button:
+Steps to perform on this page, in sequence, will be identified by bright blue numbers. In section "1️⃣ Select datafile(s)", we will select the datafiles we want to combine by clicking on the checkboxes in the Selected column and then pressing the "Combine selected files into single dataframe" button:
 
 ![combine_selected_files](reduced/combine_selected_files.png)
 
@@ -121,23 +121,23 @@ This preview (and the number of rows/columns above it) has two main purposes: (1
 
 ![maximize_table](reduced/maximize_table.png)
 
-In section "2: Delete null rows", press the "Detect null rows in each column" button to display the number of null rows in each column containing null values. If null data are detected in columns that you expect would be used in downstream analyses, you should delete the null values by expanding the "Click to expand:" dropdown and selecting one or more column names containing null values. (If you suspect all relevant columns contain the same null rows, you only need to select one of these columns.) Then press the "Delete rows from dataframe" button to delete the rows having null values in the selected columns. If rows were deleted, a message will display saying how many were deleted. You can confirm that the rows have been deleted by clicking again on the "Detect null rows in each column" button.
+In section "2️⃣ Delete null rows", press the "Detect null rows in each column" button to display the number of null rows in each column containing null values. If null data are detected in columns that you expect would be used in downstream analyses, you should delete the null values by expanding the "Click to expand:" dropdown and selecting one or more column names containing null values. (If you suspect all relevant columns contain the same null rows, you only need to select one of these columns.) Then press the "Delete rows from dataframe" button to delete the rows having null values in the selected columns. If rows were deleted, a message will display saying how many were deleted. You can confirm that the rows have been deleted by clicking again on the "Detect null rows in each column" button.
 
 If no null rows are detected, you will see something like this:
 
 ![no_null_rows](reduced/no_null_rows.png)
 
-Use the sample of the unified dataset at the bottom to identify a column(s) whose values uniquely identify the slides/images in the dataset. In section "3: Identify images", select the column name(s) from the dropdown menu and press the "Assign images" button. This will add a new column to the dataset containing the unique image IDs, as can be confirmed in the sample of the unified dataset at the bottom:
+Use the sample of the unified dataset at the bottom to identify a column(s) whose values uniquely identify the slides/images in the dataset. In section "3️⃣ Identify images", select the column name(s) from the dropdown menu and press the "Assign images" button. This will add a new column to the dataset containing the unique image IDs, as can be confirmed in the sample of the unified dataset at the bottom:
 
 ![assign_images](reduced/assign_images.png)
 
 ![assigned_images_sample](reduced/assigned_images_sample.png)
 
-If your dataset contains a column that specifies regions of interest (ROIs) within the images, step "4: Identify regions of interest (ROIs)" allows you to select that column name by turning on the "Identify dataframe column that identifies ROIs" toggle. Most groups do not have such a column. In either case, the "Assign ROIs" button must be pressed:
+If your dataset contains a column that specifies regions of interest (ROIs) within the images, step "4️⃣ Identify regions of interest (ROIs)" allows you to select that column name by turning on the "Identify dataframe column that identifies ROIs" toggle. Most groups do not have such a column. In either case, the "Assign ROIs" button must be pressed:
 
 ![assign_rois](reduced/assign_rois.png)
 
-Section "5: Identify coordinates" allows you to select the columns that contain the x and y coordinates of the cells/objects. If the dataset has already calculated the their locations using a single coordinate, then the "One column (centroid)" radio button should be selected. On the other hand, if the centroid has not already been calculated, and instead only the coordinates of the x and y bounding boxes for the cells are specified, then "Two columns (min and max)" should be selected. Regardless, the corresponding column names (which again can be determined from the dataset sample at the bottom) should be selected from the dropdown menus.
+Section "5️⃣ Identify coordinates" allows you to select the columns that contain the x and y coordinates of the cells/objects. If the dataset has already calculated the their locations using a single coordinate, then the "One column (centroid)" radio button should be selected. On the other hand, if the centroid has not already been calculated, and instead only the coordinates of the x and y bounding boxes for the cells are specified, then "Two columns (min and max)" should be selected. Regardless, the corresponding column names (which again can be determined from the dataset sample at the bottom) should be selected from the dropdown menus.
 
 In addition, this is the place to specify the units of the coordinates in the dataset. In particular, a value should be entered identifying the number of microns per coordinate unit. E.g., if dataset units are in pixels, then the number of microns per pixel should be entered. If the coordinate units are already in microns, then this value should remain the default of 1.0.
 
@@ -146,3 +146,49 @@ After the coordinate columns and unit conversions have been specified, press the
 ![assign_coordinates](reduced/assign_coordinates.png)
 
 ![assigned_coordinates_sample](reduced/assigned_coordinates_sample.png)
+
+Section "6️⃣ Identify phenotypes (optional)" allows you to identify phenotypes that may have already been defined in the dataset. This would manifest in one of two ways: (1) a single column containing the phenotype names, or (2) multiple already-thresholded columns indicating positivity (i.e., "+" or "-" or "1" or "0") of the markers corresponding to these columns. E.g., in case #2, we might have one column specifying CD8 positivity via a 0 or a 1 in each row and a second column specifying CD3 positivity via a 0 or a 1 in each row. In this latter case, you would expand the dropdown, select "One binary column per phenotype", and select the CD8 and CD3 columns.
+
+In case #1, we would instead select "One column for all phenotypes" and select the column containing the phenotype names. In either case, the "Select phenotypes" button should be pressed.
+
+In our example, we have case #2:
+
+![select_phenotypes](reduced/select_phenotypes.png)
+
+Section 6 then gives you the option to rename the detected phenotypes, which you do by double-clicking in the "New phenotype name" column of the phenotype you wish to rename and entering a new name. Note that currently, it is best to rename any phenotypes with "+" or "-" in their names, as these characters can produce unsightly phenotype names in some downstream analysis (this will be fixed in a future release):
+
+![rename_phenotypes](reduced/rename_phenotypes.png)
+
+When you're done optionally renaming the phenotypes, press the "Assign phenotypes" button:
+
+![assign_phenotypes](reduced/assign_phenotypes.png)
+
+![assigned_phenotypes_sample](reduced/assigned_phenotypes_sample.png)
+
+Finally, in section "7️⃣ Save the dataframe to the `input` directory (optional)", you can save the unified dataset to the input files available to MAWA by entering a descriptive basename in the text box and pressing the "Save dataframe to CSV" button:
+
+![save_dataframe_to_csv](reduced/save_dataframe_to_csv.png)
+
+Note that "input" in "7️⃣ Save the dataframe to the `input` directory (optional)" refers to the "input" directory in the MAWA app, as opposed to the `input` folder on NIDAP. We still must save the unified dataset to the `input` folder on NIDAP, as we do next.
+
+If you then return to the Data Import and Export page, you will see the new datafile listed in the "📂 Input data in MAWA" table:
+
+![input_data_in_mawa_with_unified_datafile](reduced/input_data_in_mawa_with_unified_datafile.png)
+
+To save this unified dataset for future use, allowing you to skip the entire process on the Datafile Unification page for this dataset, you select the basename of the file in the "🚜 Save MAWA-unified datafile to NIDAP" section and press the "Save selected (above) MAWA-unified datafile to NIDAP" button in the top middle.
+
+![save_unified_datafile](reduced/save_unified_datafile.png)
+
+You can confirm that the file has been saved to NIDAP by pressing the "Refresh available input data" button in the top left and noting the file now present at the bottom of the "📂 Available input data on NIDAP" table:
+
+![available_input_data_on_nidap_with_unified_datafile](reduced/available_input_data_on_nidap_with_unified_datafile.png)
+
+If you refresh the `input` folder on NIDAP, you should now see the unified datafile:
+
+![input_folder_with_unified_datafile](reduced/input_folder_with_unified_datafile.png)
+
+The next time MAWA is loaded, you can load this unified dataset instead of the individual datafiles, saving you time and effort.
+
+Since we just expended a bit of effort, this would be a good time to hit the Save button in the App Session Management section in the left sidebar to save your work:
+
+![save_button](reduced/save_button.png)

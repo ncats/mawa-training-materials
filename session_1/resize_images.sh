@@ -13,14 +13,21 @@ for file in full/*; do
   name="${filename%.*}"
   # Get the file extension
   extension="${filename##*.}"
-  # Convert the image to 50% of its size and save it with -reduced appended to the filename
-  # all of these work, with Lanczos and scale seeming to be the best. Choosing the former as in theory it's generally better
-  convert "$file" -filter Lanczos -resize ${resize_perc}% "reduced/${name}.${extension}"
-  # convert "$file" -filter Mitchell -resize 50% "reduced/${name}-mitchell.${extension}"
-  # convert "$file" -filter Catrom -resize 50% "reduced/${name}-catrom.${extension}"
-  # convert "$file" -filter Cubic -resize 50% "reduced/${name}-cubic.${extension}"
-  # convert "$file" -adaptive-resize 50% "reduced/${name}-adaptive.${extension}"
-  # convert "$file" -scale 50% "reduced/${name}-scale.${extension}"
-  # convert "$file" -sample 50% "reduced/${name}-sample.${extension}"
-  # convert "$file" -thumbnail 50% "reduced/${name}-thumbnail.${extension}"
+
+  if [ ! -f "reduced/${name}.${extension}" ]; then
+    echo "Resizing $file"
+    # Convert the image to 50% of its size and save it with -reduced appended to the filename
+    # all of these work, with Lanczos and scale seeming to be the best. Choosing the former as in theory it's generally better
+    convert "$file" -filter Lanczos -resize ${resize_perc}% "reduced/${name}.${extension}"
+    # convert "$file" -filter Mitchell -resize 50% "reduced/${name}-mitchell.${extension}"
+    # convert "$file" -filter Catrom -resize 50% "reduced/${name}-catrom.${extension}"
+    # convert "$file" -filter Cubic -resize 50% "reduced/${name}-cubic.${extension}"
+    # convert "$file" -adaptive-resize 50% "reduced/${name}-adaptive.${extension}"
+    # convert "$file" -scale 50% "reduced/${name}-scale.${extension}"
+    # convert "$file" -sample 50% "reduced/${name}-sample.${extension}"
+    # convert "$file" -thumbnail 50% "reduced/${name}-thumbnail.${extension}"
+  else
+    echo "Skipping $file because its reduced version already exists"
+  fi
+
 done
