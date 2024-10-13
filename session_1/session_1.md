@@ -1,4 +1,4 @@
-# Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping.
+# Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping
 
 ## Session information
 
