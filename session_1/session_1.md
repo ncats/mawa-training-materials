@@ -232,3 +232,35 @@ To color the cells by COX2 positivity, select "Phenotype COX2" in the "Select a 
 ![color_by_cox2](full/color_by_cox2.png)
 
 Keep in mind that it only makes sense to color the cells by the values in a single column. Soon, we will assign a single phenotype label to each cell--i.e., "phenotype" the cells via a single "phenotype" column--and we will be able to visualize the phenotyping results by coloring the cells by this column.
+
+## Supervised phenotyping
+
+### Using Thresholded Intensities
+
+To use multiple positivity columns of already-"thresholded" intensities--rather than "raw" intensities--to phenotype the cells, we will click on the "Using Thresholded Intensities" page of the Phenotyping section of the sidebar:
+
+![using_thresholded_intensities](full/using_thresholded_intensities.png)
+
+Press the Load Data button to load the dataset into the thresholded phenotyper:
+
+![load_data](full/load_data.png)
+
+In the Phenotype Assignments table, you will see the unique combinations of the markers you previously selected on the Datafile Unification page, ordered by decreasing frequency in the three-image dataset, e.g., NOS2- COX2- CD8- (i.e., all negative, i.e., "Other"), NOS2- COX2+ CD8- (i.e., COX2+), NOS2- COX2- CD8+ (i.e., CD8+), NOS2- COX2+ CD8+ (i.e., COX2+ CD8+), etc. Each unique combination of markers such as these is called a "species" in MAWA.
+
+The "species" phenotyping method simply assigns the cell "species" to the phenotype of the cell. I.e., the label for NOS2- COX2+ CD8- cells is "COX2+", the label for NOS2+ COX2- CD8+ cells is "NOS2+ CD8+", etc.
+
+Let's apply the "species" phenotyping method to the dataset by selecting Species in "Choose a Phenotyping Method" and pressing the "Apply Phenotyping Method" button:
+
+![apply_species_phenotyping](full/apply_species_phenotyping.png)
+
+Note the phenotype names in the "phenotype" column of the table in the Phenotype Summary section, which is consistent with the "species" phenotyping method described above. To visualize the phenotyping results, click on the "Coordinate Scatter Plotter" page in the sidebar, select "Phenotyped data" in the "Dataset containing plotting data:" dropdown, select "phenotype" in the "Select a column by which to color the points:" dropdown, and turn on the "Show scatter plot" toggle:
+
+![color_by_species_phenotype](full/color_by_species_phenotype.png)
+
+Note that by hovering over the image and clicking on the resulting maximize button, we can view a full screen view of the image. Further, if we click once on the "Other" label in the legend, we can hide the all-negative cells, which can be useful for focusing on the positive cells:
+
+![hide_all_negative_cells](full/hide_all_negative_cells.png)
+
+When hovering over the scatter plot, there are more options available in the top right, including the ability to zoom in and out, pan, and save the plot to your computer as an image.
+
+Returning to the Thresholded Intensities page, say that we...
