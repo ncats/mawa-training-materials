@@ -165,6 +165,8 @@ When you're done optionally renaming the phenotypes, press the "Assign phenotype
 
 ![assigned_phenotypes_sample](reduced/assigned_phenotypes_sample.png)
 
+Note that often the "raw" (instead of already-"thresholded") intensities will be used for phenotyping and downstream analysis, so there is often no need to complete step 6.
+
 Finally, in section "7️⃣ Save the dataframe to the `input` directory (optional)", you can save the unified dataset to the input files available to MAWA by entering a descriptive basename in the text box and pressing the "Save dataframe to CSV" button:
 
 ![save_dataframe_to_csv](reduced/save_dataframe_to_csv.png)
@@ -192,3 +194,19 @@ The next time MAWA is loaded, you can load this unified dataset instead of the i
 Since we just expended a bit of effort, this would be a good time to hit the Save button in the App Session Management section in the left sidebar to save your work:
 
 ![save_button](reduced/save_button.png)
+
+### Open File
+
+After having run the Datafile Unification page, if we load the Open File page, the toggle "Load dataset from Datafile Unifier" will be on by default:
+
+![open_file](full/open_file.png)
+
+This will allow you to load the unified dataset that you just generated from system memory.
+
+In general, since the Datafile Unification steps will only be run once per dataset, in future MAWA sessions the unified dataset should be loaded directly from the unified datafile and the toggle will be off. To show what this normal process would look like, turn off the toggle, selected the unified datafile, and press the "Load the selected input dataset" button:
+
+![load_unified_datafile](full/load_unified_datafile.png)
+
+As on the Datafile Unification page, you will see an interactive sample of the dataset at the bottom, above which various properties of the dataset will be displayed. Note that the "Coordinate units:" value is listed as `1.0 microns/coord` because we already converted the dataset to microns on the Datafile Unification page.
+
+The dataset loaded on the Open File page will be that used for the rest of the functionalities in MAWA. Pressing the "Load the selected input dataset" button will generally re-open the dataset and reset downstream analyses.
