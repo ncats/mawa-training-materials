@@ -237,11 +237,11 @@ Keep in mind that it only makes sense to color the cells by the values in a sing
 
 ### Using Thresholded Intensities
 
-To use multiple positivity columns of already-"thresholded" intensities--rather than "raw" intensities--to phenotype the cells, we will click on the "Using Thresholded Intensities" page of the Phenotyping section of the sidebar:
+To use multiple positivity columns of already-"thresholded" intensities--rather than "raw" intensities--to phenotype the cells, we will click on the "Using Thresholded Intensities" page of the Phenotyping section in the sidebar:
 
 ![using_thresholded_intensities](full/using_thresholded_intensities.png)
 
-Press the Load Data button to load the dataset into the thresholded phenotyper:
+Press the Load Data button at the top left to load the dataset into the thresholded phenotyper:
 
 ![load_data](full/load_data.png)
 
