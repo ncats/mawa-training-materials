@@ -146,5 +146,3 @@ After the coordinate columns and unit conversions have been specified, press the
 ![assign_coordinates](reduced/assign_coordinates.png)
 
 ![assigned_coordinates_sample](reduced/assigned_coordinates_sample.png)
-
-Finally, in section "6: Save unified dataframe", you can save the unified dataset to the `output` folder by pressing the "Save unified dataframe" button. This will save the dataset as a `.csv` file with the name specified in the "Unified dataframe filename" text box. If you do not specify a name, the dataset will be saved as `unified_dataframe.csv`.
