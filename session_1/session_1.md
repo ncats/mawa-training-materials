@@ -20,6 +20,8 @@ You can [explore MAWA in a public project](https://nidap.nih.gov/workspace/compa
 
 ![mawa_on_nidap](full/mawa_on_nidap.png)
 
+(Note it is recommended to use the Chrome web browser for NIDAP.)
+
 Here you will generally see four items:
 
 * `input` is a folder where you place your datafiles, which can be `.csv`, `.tsv`, or `.txt`.
@@ -44,3 +46,7 @@ Other than the `input` folder, the only other item in the MAWA workspace that yo
 ![mawa_app](reduced/mawa_app.png)
 
 After clicking on it (again, it generally helps to do this in a new tab by ctrl-clicking it), the app will open in 2-6 minutes.
+
+As the app opens, if you see a glowing "Warnings" message in the top right, as below, do not worry about it (unless the adjacent number is greater than 1). In addition, if you do not see "Latest" as highlighted in the top left, you will see a prominent banner to restart the app to pick up the latest changes; if so, click on the restart link in the banner to do so:
+
+![warnings](full/warnings.png)
