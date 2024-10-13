@@ -210,3 +210,25 @@ In general, since the Datafile Unification steps will only be run once per datas
 As on the Datafile Unification page, you will see an interactive sample of the dataset at the bottom, above which various properties of the dataset will be displayed. Note that the "Coordinate units:" value is listed as `1.0 microns/coord` because we already converted the dataset to microns on the Datafile Unification page.
 
 The dataset loaded on the Open File page will be that used for the rest of the functionalities in MAWA. Pressing the "Load the selected input dataset" button will generally re-open the dataset and reset downstream analyses.
+
+### Coordinate Scatter Plotter
+
+The Coordinate Scatter Plotter page allows you to visualize the x and y coordinates of the cells/objects in the dataset. To do this, click on the "Coordinate Scatter Plotter" page in the sidebar:
+
+![coordinate_scatter_plotter](full/coordinate_scatter_plotter.png)
+
+For our sample dataset, we know the y axis should be flipped, so check the "Invert y-axis" in the top right. Display the scatter plot by turning on the "Show scatter plot" toggle:
+
+![show_scatter_plot](full/show_scatter_plot.png)
+
+It is apparent from the scatter plot, which is fully interactive, that the circular markers obscure the underlying data at this zoom level. A robust way of addressing this common problem is to plot the bounding box for each cell instead of a marker denoting its centroid. To do this, turn off the "Show scatter plot" toggle (so the plot is not constantly redrawn while we make changes), check the "Use coordinate mins and maxs" checkbox, select the column names for the x and y mins and maxs from the dropdown menus, and turn on the "Show scatter plot" toggle again:
+
+![use_coordinate_mins_and_maxs](full/use_coordinate_mins_and_maxs.png)
+
+This better depicts the underlying cellular structure within the slide.
+
+To color the cells by COX2 positivity, select "Phenotype COX2" in the "Select a column by which to color the points:" dropdown:
+
+![color_by_cox2](full/color_by_cox2.png)
+
+Keep in mind that it only makes sense to color the cells by the values in a single column. Soon, we will assign a single phenotype label to each cell--i.e., "phenotype" the cells via a single "phenotype" column--and we will be able to visualize the phenotyping results by coloring the cells by this column.
