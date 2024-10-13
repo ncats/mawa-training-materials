@@ -253,7 +253,7 @@ Let's apply the "species" phenotyping method to the dataset by selecting Species
 
 ![apply_species_phenotyping](full/apply_species_phenotyping.png)
 
-Note the phenotype names in the "phenotype" column of the table in the Phenotype Summary section, which is consistent with the "species" phenotyping method described above. To visualize the phenotyping results, click on the "Coordinate Scatter Plotter" page in the sidebar, select "Phenotyped data" in the "Dataset containing plotting data:" dropdown, select "phenotype" in the "Select a column by which to color the points:" dropdown, and turn on the "Show scatter plot" toggle:
+Note the phenotype names in the "phenotype" column of the table in the Phenotype Summary section, which is consistent with the "species" phenotyping method described above. The scatter plot labeled by the phenotypes, with finite-sized markers, is shown at bottom left. To visualize the individual objects colored by species phenotype, click on the "Coordinate Scatter Plotter" page in the sidebar, select "Phenotyped data" in the "Dataset containing plotting data:" dropdown, select "phenotype" in the "Select a column by which to color the points:" dropdown, and turn on the "Show scatter plot" toggle:
 
 ![color_by_species_phenotype](full/color_by_species_phenotype.png)
 
@@ -261,6 +261,6 @@ Note that by hovering over the image and clicking on the resulting maximize butt
 
 ![hide_all_negative_cells](full/hide_all_negative_cells.png)
 
-When hovering over the scatter plot, there are more options available in the top right, including the ability to zoom in and out, pan, and save the plot to your computer as an image.
+When hovering over the scatter plot, there are more options available in the top right, including the ability to zoom in and out, pan, and save the plot to your computer as an image. Double-click to reset the image view.
 
 Returning to the Thresholded Intensities page, say that we...
