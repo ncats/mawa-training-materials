@@ -175,7 +175,7 @@ If you then return to the Data Import and Export page, you will see the new data
 
 ![input_data_in_mawa_with_unified_datafile](reduced/input_data_in_mawa_with_unified_datafile.png)
 
-To save this unified dataset for future use, allowing you to skip the entire process on the Datafile Unification page for this dataset, you select the basename of the file in the "🚜 Save MAWA-unified datafile to NIDAP" section and press the "Save selected (above) MAWA-unified datafile to NIDAP" button in the top middle.
+To save this unified dataset for future use, allowing you to skip the entire process on the Datafile Unification page for this dataset, you select the basename of the file in the "🚜 Save MAWA-unified datafile to NIDAP" section in the top middle and press the "Save selected (above) MAWA-unified datafile to NIDAP" button:
 
 ![save_unified_datafile](reduced/save_unified_datafile.png)
 
