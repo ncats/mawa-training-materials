@@ -328,7 +328,7 @@ Press the "Add column filter to current phenotype" button to add the thresholded
 
 ![add_dapi_threshold](reduced/add_dapi_threshold.png)
 
-Note that the "Column for filtering:" resets (since "Ultivue | DAPI Nucleus Intensity" has already been thresholded) and the "2️⃣ Current phenotype:" section updates with the new column and its thresholds. We can refine the thresholds by editing the "2️⃣ Current phenotype:" table directly. (We did this here, changing the lower bound from 469.51 to 435.)
+Note that the "Column for filtering:" resets (since "Ultivue | DAPI Nucleus Intensity" has already been thresholded) and the "2️⃣ Current phenotype:" section updates with the new column and its thresholds. We can refine the thresholds by editing the "2️⃣ Current phenotype:" table directly. (We did this here, changing the lower bound from 469.51 to 450.)
 
 Let us define a T cell as any cell having high CD8 intensity:
 
@@ -336,7 +336,7 @@ Let us define a T cell as any cell having high CD8 intensity:
 
 Note we have first zoomed in on the histogram by selecting the Zoom radio button and selecting on the histogram that way. Then we switched back to "Positivity identification" and selected the second peak (and higher) in the histogram.
 
-Press the "Add column filter to current phenotype" button to add the thresholded column to the current phenotype defined in section "2️⃣ Current phenotype", and refine the upper bound to 40,000 since we could not select that high on the zoomed-in histogram:
+Press the "Add column filter to current phenotype" button to add the thresholded column to the current phenotype defined in section "2️⃣ Current phenotype":
 
 ![add_cd8_threshold](reduced/add_cd8_threshold.png)
 
