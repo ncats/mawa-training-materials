@@ -1,10 +1,24 @@
 # Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping
 
+- [Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping](#session-1-introduction-to-nidap-mawa-fundamentals-supervised-phenotyping)
+  - [Session information](#session-information)
+  - [Introduction](#introduction)
+  - [NIH Integrated Data Analysis Platform (NIDAP)](#nih-integrated-data-analysis-platform-nidap)
+  - [File handling](#file-handling)
+    - [Overview](#overview)
+    - [Data Import and Export](#data-import-and-export)
+    - [Datafile Unification](#datafile-unification)
+    - [Open File](#open-file)
+  - [Coordinate Scatter Plotter](#coordinate-scatter-plotter)
+  - [Supervised phenotyping](#supervised-phenotyping)
+    - [Using Thresholded Intensities](#using-thresholded-intensities)
+    - [Using Raw Intensities](#using-raw-intensities)
+
 ## Session information
 
-* **Date**: Tue 10/15/24, 1-2 PM
-* **Speaker**: Andrew Weisman, Ph.D.
-* **[Link](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-introduction-to-nidap-and-mawa-fundamentals)**
+- **Date**: Tue 10/15/24, 1-2 PM
+- **Speaker**: Andrew Weisman, Ph.D.
+- **[Link](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-introduction-to-nidap-and-mawa-fundamentals)**
 
 ## Introduction
 
@@ -24,10 +38,10 @@ You can [explore MAWA in a public project](https://nidap.nih.gov/workspace/compa
 
 Here you will generally see four items:
 
-* `input` is a folder where you place your datafiles, which can be `.csv`, `.tsv`, or `.txt`.
-* `output` is a folder where MAWA will save its results.
-* `MAWA App` is what you click on to start the app.
-* `MAWA developer workspace` is reserved for admins and developers.
+- `input` is a folder where you place your datafiles, which can be `.csv`, `.tsv`, or `.txt`.
+- `output` is a folder where MAWA will save its results.
+- `MAWA App` is what you click on to start the app.
+- `MAWA developer workspace` is reserved for admins and developers.
 
 When you click into the `input` folder (generally, it helps to do this in a new tab by `Ctrl`-clicking it), you will see something like this:
 
@@ -211,7 +225,7 @@ As on the Datafile Unification page, you will see an interactive sample of the d
 
 The dataset loaded on the Open File page will be that used for the rest of the functionalities in MAWA. Pressing the "Load the selected input dataset" button will generally re-open the dataset and reset downstream analyses.
 
-### Coordinate Scatter Plotter
+## Coordinate Scatter Plotter
 
 The Coordinate Scatter Plotter page allows you to visualize the x and y coordinates of the cells/objects in the dataset. To do this, click on the "Coordinate Scatter Plotter" page in the sidebar:
 
@@ -313,8 +327,8 @@ Prior to loading the intensities into this analysis, we have the option of perfo
 
 As for the Datafile Unifier, here we step through the sections in order, but we go back and forth between sections for certain purposes:
 
-* Step between sections 1️⃣ and 2️⃣ to build a single phenotype by thresholding the intensities of multiple markers.
-* Step between the previous process (1️⃣/2️⃣) and section 3️⃣ define multiple phenotypes.
+- Step between sections 1️⃣ and 2️⃣ to build a single phenotype by thresholding the intensities of multiple markers.
+- Step between the previous process (1️⃣/2️⃣) and section 3️⃣ define multiple phenotypes.
 
 Ultimately, we will append new thresholded phenotypes to the dataset, i.e., we will create multiple columns of "+"s and "-"s identifying the positivity of each cell for the newly defined phenotypes.
 
@@ -350,10 +364,10 @@ By maximizing the "3️⃣ Phenotype assignments" table, we can see exactly how 
 
 Now let's define five more phenotypes that are mutually exclusive with CTLs but not necessarily with each other:
 
-* Medium COX2 intensity
-* High COX2 intensity
-* Medium NOS2 intensity
-* High NOS2 intensity
+- Medium COX2 intensity
+- High COX2 intensity
+- Medium NOS2 intensity
+- High NOS2 intensity
 
 Trick: We could continue to select histograms, but since the tables are editable, we can simply use the histograms to obtain key values and then edit the "3️⃣ Phenotype assignments" table directly (adding rows as necessary):
 
