@@ -263,4 +263,40 @@ Note that by hovering over the image and clicking on the resulting maximize butt
 
 When hovering over the scatter plot, there are more options available in the top right, including the ability to zoom in and out, pan, and save the plot to your computer as an image. Double-click to reset the image view.
 
-Returning to the Thresholded Intensities page, say that we...
+Returning to the Thresholded Intensities page, say that we knew that some compound phenotypes were more likely certain types of cells; e.g., COX2+ CD8+ were likely T cells rather than a distinct COX2+ CD8+ phenotype. To apply this knowledge, we choose the Custom phenotyping method in the top right and again press the Apply Phenotyping Method button:
+
+![apply_custom_phenotyping](full/apply_custom_phenotyping.png)
+
+This method provides a way to customize phenotypes by overwriting the "unassigned" phenotype in the Phenotype Assignments table. E.g., we would double-click "unassigned" in the COX2+ CD8+ row and enter "T cell":
+
+![overwrite_single_unassigned_phenotype](reduced/overwrite_single_unassigned_phenotype.png)
+
+Note that once `Enter` is pressed, both the scatter plot at bottom left and the Phenotype Summary table will dynamically update with this information:
+
+![overwrite_single_unassigned_phenotype_update](full/overwrite_single_unassigned_phenotype_update.png)
+
+As more and more "unassigned" phenotypes are overwritten with phenotype assignments based on prior knowledge, the plot and table will continue to dynamically update. Note that the multiple species assigned to the same phenotype show up in the species_name_short column of the Phenotype Summary table:
+
+![custom_phenotyping_finished](full/custom_phenotyping_finished.png)
+
+Again, to view the actual cellular bounding boxes rather than finite marker sizes, we revisit the Coordinate Scatter Plotter page:
+
+![color_by_custom_phenotype](full/color_by_custom_phenotype.png)
+
+Since entering custom phenotype assignments can require some effort, this might be a good time to save the phenotyping results by pressing the Save button in the App Session Management section in the left sidebar.
+
+Finally, say we were to ask ourselves the locations of the cells that are expressing positive for each of the markers NOS2, COX2, and CD8. E.g., at the location of a cell that was expressing positive for both COX2 and CD8, we would want a colorful mark for both COX2 and CD8. This type of phenotyping, in which each marker is essentially treated as its own cell, is called "marker" phenotyping. To apply this method, we would select Marker in the "Choose a Phenotyping Method" section and press the "Apply Phenotyping Method" button:
+
+![apply_marker_phenotyping](full/apply_marker_phenotyping.png)
+
+Viewing the scatter plot in the Coordinate Scatter Plotter now yields:
+
+![color_by_marker_phenotype](full/color_by_marker_phenotype.png)
+
+Note that in order to obtain this plot, currently there is a bug (to be resolved in a future release) that requires you to flip back and forth between "Input data" and "Phenotyped data" in the "Dataset containing plotting data:" dropdown. Also, colors for the phenotypes were manually selected in the Coordinate Scatter Plotter to match the colors of the previous scatter plot. Note the (expected) similarity between the two plots.
+
+Of course, we can always zoom in on plots like this to obtain a better view of the data:
+
+![zoomed_in_marker_phenotyping](full/zoomed_in_marker_phenotyping.png)
+
+Note this affords a better view of the actual cell sizes and shapes. Also, note there is a tooltip identifying the phenotype when hovering over a cell.
