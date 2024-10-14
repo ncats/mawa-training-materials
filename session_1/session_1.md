@@ -382,3 +382,27 @@ Now that every object has been assigned a phenotype (even if it's all-negative),
 ![raw_to_thresholded_color_by_custom_phenotype](full/raw_to_thresholded_color_by_custom_phenotype.png)
 
 ![raw_to_thresholded_color_by_custom_phenotype_zoomed_in](full/raw_to_thresholded_color_by_custom_phenotype_zoomed_in.png)
+
+Finally, we want to save all our results so far back to NIDAP so we can access them later. The save includes all results, settings that produced them, and package versions used. To do this, we click on the "Data Import and Export" page in the sidebar, enter a descriptive name in the "🚜 Save results" section in the bottom middle, and press the "Save current results to a new archive" button:
+
+![save_results](full/save_results.png)
+
+Pressing the "Refresh available results archives" button on the bottom left will show the new archive:
+
+![available_results_archives](reduced/available_results_archives.png)
+
+We can confirm that this archived file is saved to NIDAP by refreshing the `output` folder in the MAWA workspace:
+
+![output_folder_with_results_archive](full/output_folder_with_results_archive.png)
+
+MAWA should now be shut down by pressing the Active button in the top right and clicking on "Pause workspace":
+
+![pause_workspace](full/pause_workspace.png)
+
+Next time MAWA is started, the saved results/settings can be loaded by (1) selecting the archive from the dropdown menu in the "🚜 Load results" section in the bottom middle and pressing the "Load selected (above) results archive" button,
+
+![load_results](full/load_results.png)
+
+and (2) selecting the session corresponding to the green "session state files in the 'output' directory" in the sidebar and pressing the Load button:
+
+![load_session](reduced/load_session.png)
