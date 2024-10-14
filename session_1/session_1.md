@@ -293,10 +293,92 @@ Viewing the scatter plot in the Coordinate Scatter Plotter now yields:
 
 ![color_by_marker_phenotype](full/color_by_marker_phenotype.png)
 
-Note that in order to obtain this plot, currently there is a bug (to be resolved in a future release) that requires you to flip back and forth between "Input data" and "Phenotyped data" in the "Dataset containing plotting data:" dropdown. Also, colors for the phenotypes were manually selected in the Coordinate Scatter Plotter to match the colors of the previous scatter plot. Note the (expected) similarity between the two plots.
+Here, colors for the phenotypes were manually selected in the Coordinate Scatter Plotter to match the colors of the previous scatter plot. Note the (expected) similarity between the two plots.
 
 Of course, we can always zoom in on plots like this to obtain a better view of the data:
 
 ![zoomed_in_marker_phenotyping](full/zoomed_in_marker_phenotyping.png)
 
 Note this affords a better view of the actual cell sizes and shapes. Also, note there is a tooltip identifying the phenotype when hovering over a cell.
+
+### Using Raw Intensities
+
+Rather than using already-"thresholded" intensities, we can use the "raw" intensities to phenotype the cells. The whole point of this is ultimately to "threshold" combinations of intensities in order to define positivity for a phenotype of interest; this is essentially the step *prior* to using the Thresholded Intensities phenotyper. To start, we click on the "Using Raw Intensities" page of the Phenotyping section in the sidebar:
+
+![using_raw_intensities](full/using_raw_intensities.png)
+
+Prior to loading the intensities into this analysis, we have the option of performing Z score normalization on the numerical values. If this is desired, toggle on "Perform batch normalization," so-named because doing this helps to put data from different images on equal footing even though there may be variables such as acquisition date that affect the collected data. Here we opt to not perform batch normalization prior to pressing the "Load data" button:
+
+![load_raw_intensities_phenotyping](full/load_raw_intensities_phenotyping.png)
+
+As for the Datafile Unifier, here we step through the sections in order, but we go back and forth between sections for certain purposes:
+
+* Step between sections 1️⃣ and 2️⃣ to build a single phenotype by thresholding the intensities of multiple markers.
+* Step between the previous process (1️⃣/2️⃣) and section 3️⃣ define multiple phenotypes.
+
+Ultimately, we will append new thresholded phenotypes to the dataset, i.e., we will create multiple columns of "+"s and "-"s identifying the positivity of each cell for the newly defined phenotypes.
+
+Upon performing this method, we can either ensure that the newly defined phenotypes are mutually exclusive or we can rely on the functionality in the Thresholded Intensities phenotyper that we just learned about to intelligently combine the new phenotypes into a single phenotype. In fact, we will always complete Raw Intensities phenotyping with checks or combinations via Thresholded Intensities phenotyping. As usual, in the end, the goal is to obtain a single phenotype for each cell.
+
+In section "1️⃣ Column filter", keeping "Image selection:" set to "All images" (rather than setting thresholds individually for each image, which is another form of batch normalization), we choose a column to threshold by selecting it from the "Column for filtering:" dropdown. E.g., to ensure that the object has a nucleus, we could select the "Ultivue | DAPI Nucleus Intensity" column and select from the histogram a rectangle identifying an upper range of DAPI intensity. The selected region will render as bright red:
+
+![high_dapi_intensity](reduced/high_dapi_intensity.png)
+
+Press the "Add column filter to current phenotype" button to add the thresholded column to the current phenotype defined in section "2️⃣ Current phenotype":
+
+![add_dapi_threshold](reduced/add_dapi_threshold.png)
+
+Note that the "Column for filtering:" resets (since "Ultivue | DAPI Nucleus Intensity" has already been thresholded) and the "2️⃣ Current phenotype:" section updates with the new column and its thresholds. We can refine the thresholds by editing the "2️⃣ Current phenotype:" table directly. (We did this here, changing the lower bound from 469.51 to 435.)
+
+Let us define a T cell as any cell having high CD8 intensity:
+
+![high_cd8_intensity](reduced/high_cd8_intensity.png)
+
+Note we have first zoomed in on the histogram by selecting the Zoom radio button and selecting on the histogram that way. Then we switched back to "Positivity identification" and selected the second peak (and higher) in the histogram.
+
+Press the "Add column filter to current phenotype" button to add the thresholded column to the current phenotype defined in section "2️⃣ Current phenotype", and refine the upper bound to 40,000 since we could not select that high on the zoomed-in histogram:
+
+![add_cd8_threshold](reduced/add_cd8_threshold.png)
+
+We have completed our definition of a cytotoxic T lymphocyte (CTL), so enter "CTL" in the "Phenotype name:" text box and press the "Add phenotype to assignments table" button:
+
+![add_ctl_phenotype](reduced/add_ctl_phenotype.png)
+
+By maximizing the "3️⃣ Phenotype assignments" table, we can see exactly how CTLs are defined:
+
+![ctl_phenotype](reduced/ctl_phenotype.png)
+
+Now let's define five more phenotypes that are mutually exclusive with CTLs but not necessarily with each other:
+
+* Medium COX2 intensity
+* High COX2 intensity
+* Medium NOS2 intensity
+* High NOS2 intensity
+
+Trick: We could continue to select histograms, but since the tables are editable, we can simply use the histograms to obtain key values and then edit the "3️⃣ Phenotype assignments" table directly (adding rows as necessary):
+
+![final_raw_phenotype_assignments](full/final_raw_phenotype_assignments.png)
+
+Now we press the "Append phenotype assignments to the dataset" button to append the new phenotypes to the dataset:
+
+![append_raw_phenotypes](full/append_raw_phenotypes.png)
+
+By toggling on "Plot the selected phenotype in the selected image," we can view a quick scatter plot labeled by the selected phenotype ("+" or "-"):
+
+![plot_raw_phenotype](reduced/plot_raw_phenotype.png)
+
+Since this was quite a bit of work, now is a good time to Save the session state via the left sidebar.
+
+As alluded to earlier, we can now use the Thresholded Intensities phenotyper to combine the new phenotypes into a single phenotype. To do this, we click on the "Using Thresholded Intensities" page of the Phenotyping section in the sidebar and press the Load Data button:
+
+![raw_intensities_into_thresholded](full/raw_intensities_into_thresholded.png)
+
+Now we select the Custom phenotyping method, press the Apply Phenotyping Method button, and then overwrite the "unassigned" phenotypes with the new phenotypes:
+
+![overwrite_unassigned_phenotypes](full/overwrite_unassigned_phenotypes.png)
+
+Now that every object has been assigned a phenotype (even if it's all-negative), we can return to the Coordinate Scatter Plotter page to visualize the new phenotypes:
+
+![raw_to_thresholded_color_by_custom_phenotype](full/raw_to_thresholded_color_by_custom_phenotype.png)
+
+![raw_to_thresholded_color_by_custom_phenotype_zoomed_in](full/raw_to_thresholded_color_by_custom_phenotype_zoomed_in.png)
