@@ -1,6 +1,9 @@
-# Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping
+# Spatial Omics Data Analysis with MAWA
 
-- [Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping](#session-1-introduction-to-nidap-mawa-fundamentals-supervised-phenotyping)
+## Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping
+
+- [Spatial Omics Data Analysis with MAWA](#spatial-omics-data-analysis-with-mawa)
+  - [Session 1: Introduction to NIDAP. MAWA fundamentals. Supervised phenotyping](#session-1-introduction-to-nidap-mawa-fundamentals-supervised-phenotyping)
   - [Session information](#session-information)
   - [Introduction](#introduction)
   - [NIH Integrated Data Analysis Platform (NIDAP)](#nih-integrated-data-analysis-platform-nidap)
@@ -18,13 +21,32 @@
 
 - **Date**: Tue 10/15/24, 1-2 PM
 - **Speaker**: Andrew Weisman, Ph.D.
-- **[Link](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-introduction-to-nidap-and-mawa-fundamentals)**
+- **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-introduction-to-nidap-and-mawa-fundamentals)**
+- **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
+- All data generously provided by the David Wink lab
 
 ## Introduction
 
 MAWA (Multiplex Analysis Web Apps) is new, open-source software capable of performing file handling, phenotyping, and spatial analysis on segmented spatial transcriptomics/proteomics data. Implementing multiple published and novel methodologies, it is extremely performant and user-friendly, aiming to be accessible to users of all skill levels.
 
-MAWA can be run either locally, requiring [installation](https://github.com/ncats/multiplex-analysis-web-apps/tree/develop), or on the cloud. Cloud options include the [NIH Integrated Data Analysis Platform (NIDAP)](https://nidap.nih.gov), which provides a secure, powerful environment for NIH researchers, and [Streamlit Community Cloud](https://nci-mawa.streamlit.app), which is open to the general public on a shared computing environment. Deployment on NIDAP will be the focus of this workshop. Deployment on Streamlit Community Cloud is brand new and requires a few more tweaks. All three deployment options share the same [codebase](https://github.com/ncats/multiplex-analysis-web-apps/tree/develop), so MAWA's features are consistent across all platforms.
+Input data:
+
+- Spatial Transcriptomics:
+  - **Technology summary**: Barcodes embedded in grids on specialized slides, RNA sequencing techniques.
+  - **Raw data**: Transcript counts at each point on a grid.
+  - **Processing**: Spatial deconvolution is used to obtain the gene expression profile (in counts) for each cell or spot.
+- Spatial Proteomics (in the case of immunofluorescence):
+  - **Technology summary**: Fluorophore-labeled antibodies bound to protein surface markers.
+  - **Raw data**: Channel intensity at each pixel.
+  - **Processing**: Deep-learning based image segmentation is used to obtain the protein intensity for each cell.
+- Ultimately, both methods lead to text-based data with objects in rows and coordinates and numerical features in columns.
+- Any data of this general format can be used in MAWA.
+
+MAWA can be run either locally, requiring [installation](https://github.com/ncats/multiplex-analysis-web-apps/tree/develop), or on the cloud. Cloud options include the [NIH Integrated Data Analysis Platform (NIDAP)](https://nidap.nih.gov), which provides a secure, powerful environment for NIH researchers, and Streamlit Community Cloud, which is open to the general public on a shared computing environment. Deployment on NIDAP will be the focus of this workshop. Deployment on Streamlit Community Cloud is brand new and requires a few more tweaks. All three deployment options share the same [codebase](https://github.com/ncats/multiplex-analysis-web-apps/tree/develop), so MAWA's features are consistent across all platforms.
+
+![MAWA_Deployment_Options](reduced/MAWA_Deployment_Options.png)
+
+![NIDAP](reduced/NIDAP.png)
 
 ## NIH Integrated Data Analysis Platform (NIDAP)
 
@@ -251,6 +273,10 @@ Keep in mind that it only makes sense to color the cells by the values in a sing
 
 ### Using Thresholded Intensities
 
+Here is a sample of the three thresholded phenotyping methods we will cover in this section, to be explained in more detail below:
+
+![sample_thresholded_phenotyping_summary](full/sample_thresholded_phenotyping_summary.png)
+
 To use multiple positivity columns of already-"thresholded" intensities--rather than "raw" intensities--to phenotype the cells, we will click on the "Using Thresholded Intensities" page of the Phenotyping section in the sidebar:
 
 ![using_thresholded_intensities](full/using_thresholded_intensities.png)
@@ -261,7 +287,9 @@ Press the Load Data button at the top left to load the dataset into the threshol
 
 In the Phenotype Assignments table, you will see the unique combinations of the markers you previously selected on the Datafile Unification page, ordered by decreasing frequency in the three-image dataset, e.g., NOS2- COX2- CD8- (i.e., all negative, i.e., "Other"), NOS2- COX2+ CD8- (i.e., COX2+), NOS2- COX2- CD8+ (i.e., CD8+), NOS2- COX2+ CD8+ (i.e., COX2+ CD8+), etc. Each unique combination of markers such as these is called a "species" in MAWA.
 
-The "species" phenotyping method simply assigns the cell "species" to the phenotype of the cell. I.e., the label for NOS2- COX2+ CD8- cells is "COX2+", the label for NOS2+ COX2- CD8+ cells is "NOS2+ CD8+", etc.
+The "species" phenotyping method simply assigns the cell "species" to the phenotype of the cell. I.e., the label for NOS2- COX2+ CD8- cells is "COX2+", the label for NOS2+ COX2- CD8+ cells is "NOS2+ CD8+", etc. For example:
+
+![sample_species_phenotyping](full/sample_species_phenotyping.png)
 
 Let's apply the "species" phenotyping method to the dataset by selecting Species in "Choose a Phenotyping Method" and pressing the "Apply Phenotyping Method" button:
 
@@ -277,7 +305,11 @@ Note that by hovering over the image and clicking on the resulting maximize butt
 
 When hovering over the scatter plot, there are more options available in the top right, including the ability to zoom in and out, pan, and save the plot to your computer as an image. Double-click to reset the image view.
 
-Returning to the Thresholded Intensities page, say that we knew that some compound phenotypes were more likely certain types of cells; e.g., COX2+ CD8+ were likely T cells rather than a distinct COX2+ CD8+ phenotype. To apply this knowledge, we choose the Custom phenotyping method in the top right and again press the Apply Phenotyping Method button:
+Returning to the Thresholded Intensities page, say that we knew that some compound phenotypes were more likely certain types of cells; e.g., COX2+ CD8+ were likely T cells rather than a distinct COX2+ CD8+ phenotype. For example:
+
+![sample_custom_phenotyping](full/sample_custom_phenotyping.png)
+
+To apply this knowledge, we choose the Custom phenotyping method in the top right and again press the Apply Phenotyping Method button:
 
 ![apply_custom_phenotyping](full/apply_custom_phenotyping.png)
 
@@ -299,7 +331,11 @@ Again, to view the actual cellular bounding boxes rather than finite marker size
 
 Since entering custom phenotype assignments can require some effort, this might be a good time to save the phenotyping results by pressing the Save button in the App Session Management section in the left sidebar.
 
-Finally, say we were to ask ourselves the locations of the cells that are expressing positive for each of the markers NOS2, COX2, and CD8. E.g., at the location of a cell that was expressing positive for both COX2 and CD8, we would want a colorful mark for both COX2 and CD8. This type of phenotyping, in which each marker is essentially treated as its own cell, is called "marker" phenotyping. To apply this method, we would select Marker in the "Choose a Phenotyping Method" section and press the "Apply Phenotyping Method" button:
+Finally, say we were to ask ourselves the locations of the cells that are expressing positive for each of the markers NOS2, COX2, and CD8. E.g., at the location of a cell that was expressing positive for both COX2 and CD8, we would want a colorful mark for both COX2 and CD8. This type of phenotyping, in which each marker is essentially treated as its own cell, is called "marker" phenotyping. For example:
+
+![sample_marker_phenotyping](full/sample_marker_phenotyping.png)
+
+To apply this method, we would select Marker in the "Choose a Phenotyping Method" section and press the "Apply Phenotyping Method" button:
 
 ![apply_marker_phenotyping](full/apply_marker_phenotyping.png)
 
@@ -333,6 +369,16 @@ As for the Datafile Unifier, here we step through the sections in order, but we 
 Ultimately, we will append new thresholded phenotypes to the dataset, i.e., we will create multiple columns of "+"s and "-"s identifying the positivity of each cell for the newly defined phenotypes.
 
 Upon performing this method, we can either ensure that the newly defined phenotypes are mutually exclusive or we can rely on the functionality in the Thresholded Intensities phenotyper that we just learned about to intelligently combine the new phenotypes into a single phenotype. In fact, we will always complete Raw Intensities phenotyping with checks or combinations via Thresholded Intensities phenotyping. As usual, in the end, the goal is to obtain a single phenotype for each cell.
+
+For example, to perform mutually exclusive phenotyping using the Raw Intensities phenotyper, we might define five phenotypes:
+
+![Mutually_exclusive_phenotypes](reduced/Mutually_exclusive_phenotypes.png)
+
+Alternatively, we can define only three (simpler) phenotypes, relying on subsequent application of Species phenotyping in the thresholded phenotyper:
+
+![Non_mutually_exclusive_phenotypes](reduced/Non_mutually_exclusive_phenotypes.png)
+
+We will now perform the latter workflow, adding combinations for low, medium, and high expression of COX2 and NOS2.
 
 In section "1️⃣ Column filter", keeping "Image selection:" set to "All images" (rather than setting thresholds individually for each image, which is another form of batch normalization), we choose a column to threshold by selecting it from the "Column for filtering:" dropdown. E.g., to ensure that the object has a nucleus, we could select the "Ultivue | DAPI Nucleus Intensity" column and select from the histogram a rectangle identifying an upper range of DAPI intensity. The selected region will render as bright red:
 
