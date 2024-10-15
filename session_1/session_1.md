@@ -23,6 +23,8 @@
 - **Speaker**: Andrew Weisman, Ph.D.
 - **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-introduction-to-nidap-and-mawa-fundamentals)**
 - **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
+- **[Video of session material](https://nih-my.sharepoint.com/:v:/g/personal/weismanal_nih_gov/EZ7HCqQUvTFPvDZu6mVxtD8BYRmRakNC-_l-19qoNSfVGA?e=fWa8Bd)**
+- **[Session slides](https://github.com/ncats/mawa-training-materials/blob/develop/session_1/Spatial_Omics_Data_Analysis_with_MAWA_Session_1_Introduction_to_NIDAP_MAWA_fundamentals_Supervised_phenotyping.pdf)**
 - All data generously provided by the David Wink lab
 
 ## Introduction
