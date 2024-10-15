@@ -50,7 +50,7 @@ MAWA can be run either locally, requiring [installation](https://github.com/ncat
 
 ## NIH Integrated Data Analysis Platform (NIDAP)
 
-NIDAP's filesystem is organized into Projects, which usually corresponds to research groups. Each Project can contain both user data and instances of NIDAP applications. MAWA is an instance of the Code Workspaces application.
+NIDAP's filesystem is organized into Projects, which usually correspond to research groups. Each Project can contain both user data and instances of NIDAP applications. MAWA is an instance of the Code Workspaces application.
 
 You can [explore MAWA in a public project](https://nidap.nih.gov/workspace/compass/view/ri.compass.main.folder.a50782c9-f612-4476-9633-49eb266dbaed), which will be used during this workshop. To create a secure deployment for your group, [contact us](mailto:andrew.weisman@nih.gov) to have MAWA set up in your project. Once set up, you will be given a URL to access your instance of MAWA, bringing you to a page that looks like this:
 
