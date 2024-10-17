@@ -25,6 +25,7 @@
 - **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
 - **[Video of session material](https://nih-my.sharepoint.com/:v:/g/personal/weismanal_nih_gov/EZ7HCqQUvTFPvDZu6mVxtD8BYRmRakNC-_l-19qoNSfVGA?e=fWa8Bd)**
 - **[Session slides](https://github.com/ncats/mawa-training-materials/blob/develop/session_1/Spatial_Omics_Data_Analysis_with_MAWA_Session_1_Introduction_to_NIDAP_MAWA_fundamentals_Supervised_phenotyping.pdf)**
+- **[Recording of session](https://cbiit.webex.com/cbiit/ldr.php?RCID=09be6e444de9df4a4cee2c979b48fb0f)**
 - All data generously provided by the David Wink lab
 
 ## Introduction
