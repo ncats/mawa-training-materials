@@ -2,4 +2,4 @@ Unsupervised clustering provides several advantages over traditional manual anno
 
 To select unsupervised phenotypying app click
 
-(images/uc_location.png)
+![UC_location](images/uc_location.png)
