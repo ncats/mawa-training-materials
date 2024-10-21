@@ -51,5 +51,17 @@ In addition, each of the clustering methods includes an option to increase the c
 
 ![Fast_options](images/fast_options.png)
 
+After all clustering options are selected, we can run the analysis by clicking on the `Run Clustering` button.
+
 **Clustering Visualization**
+
+After clustering is completed, we can produce spatial plots that would place cells on the Y and X axes based on their coordinates and color them by cluster identity.
+
+![Spatial_plots_options](images/spatial_plots_options.png)
+
+To produce the plots, select to color groups by `Cluster`, subset plots by `Image ID`, select images that you'd like to be plotted, and click `Make Spatial Plots` button.
+
+Spatial plots will appear in the top right corner of the page and would look similar to the example below.
+
+![Spatial_plots_examples](images/Spatial_plots_examples.png)
 
