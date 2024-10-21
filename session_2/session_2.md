@@ -65,3 +65,27 @@ Spatial plots will appear in the top right corner of the page and would look sim
 
 ![Spatial_plots_examples](images/Spatial_plots_examples.png)
 
+Another way to visualize clustering results is to use Uniform Manifold Approximation and Projection for Dimension Reduction ([UMAP](https://umap-learn.readthedocs.io/en/latest/)) method. UMAP allows to represent multidimensional data in two dimensions and aims to preserve global structure of the data and maintain local relationships.
+
+To visualize your data with UMAP, click `Compute UMAP` button and wait for the calculations to be completed.
+
+You can specify the same options for UMAP visualization and produce UMAPs for each image by clicking `Plot UMAPs` button.
+
+The UMAPs will appear in the top right corner of the page
+
+![UMAPs_example_images](images/umap_example_images.png)
+
+In addition, UMAP allows to visualize clustering results for all images/samples, at once.
+In order to do so, replace specific images selection in `Select groups to be plotted` with `All` option and click `Plot UMAPs` button again.
+
+![Umap_all_images_options](images/Umap_all_images_options.png)
+
+The output will appear in the top right corner of the page.
+
+![Umap_all_images_example](images/Umap_all_images_example.png)
+
+Generally, cells belonging to the same cluster will be more similar to each other than to cells from other clusters.
+
+After the initial clustering, you can select to add Cluster identity of each cell to the original input table by clicking `Add Clusters to Input Data` or proceed with the differential intensity/expression analysis.
+
+**Differential Intensity/Expression**
