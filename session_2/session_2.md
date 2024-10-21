@@ -49,3 +49,7 @@ Each of the clustering methods includes its' own set of the parameters that can 
 
 In addition, each of the clustering methods includes an option to increase the computational speed, via application of approximate nearest neighbor search (instead of exact one) and iGraph's implementation of [Leiden algorithm](https://python.igraph.org/en/stable/api/igraph.Graph.html#community_leiden).
 
+![Fast_options](images/fast_options.png)
+
+**Clustering Visualization**
+
