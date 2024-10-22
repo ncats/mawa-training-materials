@@ -1,6 +1,6 @@
 **Introduction**
 
-Unsupervised clustering provides several advantages over traditional manual annotation of the cell types. All images in the dataset can be evaluated together and it helps to reduce personally introduced bias. Unsupervised clustering workflow primarily consists of two steps, construction of the neighborhood graph and evaluation of the graph with a community detection algorithm. 
+Unsupervised clustering provides several advantages over traditional manual annotation of the multiplex imaging datasets. Cells from all images can be evaluated together, which reduces the amount of time that is required for annotation. In addition, original cell identities are determined by applying computational methods to quantitative phenotypic data, which reduces personal bias associated with manual annotations. Unsupervised clustering workflow primarily consists of two steps, construction of a neighborhood graph and evaluation of the graph with a community detection algorithm. 
 
 To select Unsupervised Phenotype Clustering application click on it in the left side menu.
 
