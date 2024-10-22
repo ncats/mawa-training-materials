@@ -89,3 +89,24 @@ Generally, cells belonging to the same cluster will be more similar to each othe
 After the initial clustering, you can select to add Cluster identity of each cell to the original input table by clicking `Add Clusters to Input Data` or proceed with the differential intensity/expression analysis.
 
 **Differential Intensity/Expression**
+
+To proceed with differential intensities/expression, select `Differential Intensity` application in the left side menu.
+
+![Differential_intensity_location](images/Differential_intensity_location.png)
+
+Our current implementation of differential intensity/expression method, performs Wilcoxon Rank Sum test on a selected group of cells, comparing it to the rest of the cells, in the data.
+
+![Differential_intensity_options](images/Differential_intensity_options.png)
+
+The first option allows you to select any metadata column, based on which you would like to perform differential analysis. In the provided example `Cluster` column that contains clusters' IDs of the cells from the previous analysis is selected.
+
+The next multiselect field allows you to select groups for which differential analysis will be performed. In the example above, we selected to identify markers for clusters 0 and 13.
+
+Selecting `Only Positive Markers` option, will return markers that have intensity/expression significantly higher for a elected group of cells. Otherwise, all markers which intensity/expression is significantly different between a selected cells group and the rest of the cells are returned.
+
+Clicking `Run Differential Intensity` button will run the analysis and return the following table.
+
+![Differential_intensity_table](images/Differential_intensity_table.png)
+
+Columns of the table include group ID for which differential analysis was performed, names of identified markers, scores for the Wilcoxon test, log2 fold change between intensity/expression of the marker withing a selected group and the rest of the cells, p-values calculated for the test, and p-values adjusted for multiple testing with a Benjamini-Hochberg (FDR) method.
+
