@@ -110,3 +110,51 @@ Clicking `Run Differential Intensity` button will run the analysis and return th
 
 Columns of the table include group ID for which differential analysis was performed, names of identified markers, scores for the Wilcoxon test, log2 fold change between intensity/expression of the marker withing a selected group and the rest of the cells, p-values calculated for the test, and p-values adjusted for multiple testing with a Benjamini-Hochberg (FDR) method.
 
+**Differential Intensity Visualization**
+
+We provide several options for visualization of differential intensities results that include rank plot, heatmap, and UMAP in which cells are colored based on intensity/expression of the markers. 
+To produce a plot, just select a type of figure that you woudld like to produce, the number of markers to be plotted, and click `Plot Markers` button.
+
+**Rank plot** shows top markers for each cluster based on Wilcoxon Rank Sum Test scores.
+
+![Rank_plot](images/Rank_plots_example.png)
+
+**Heat map** helps to visualize mean intensity/expression of the markers in clusters selected for analysis.
+
+![Heat_map](images/Heat_map_example.png)
+
+**UMAP** shows intensity/expression of the markers for each cell on the UMAP.
+
+![Umap_intensity](images/Umap_intensity_example.png)
+
+Currently, data are normalized and scaled by default, for heat maps and UMAPs intensity plots. These steps would be added as additional options, soon.
+
+**Editing Clusters IDs**
+
+In addition, it is possible to edit cluster identities, which can be useful in order to group similar cell types that might be identified during previous analysis steps.
+
+In order to do so, you can add a new cluster name near the original cluster identity and click `Edit Clusters Names`.
+
+![Edit_clusters](images/Edit_clusters_example.png)
+
+This action will create a new metadata column `Edit_Cluster` for current analysis.
+In the example above, clusters 0, 1, and 2 will be renamed as AB.
+`Reset New Cluster Names` button will restore the original clusters IDs.
+
+New cluster names can be used to produce spatial plots and UMAPs with edited IDs.
+
+![Edit_cluster_umap](images/Edit_cluster_umap.png)
+
+Or can be used as a new group for differential intensity/expression analysis.
+
+![New_intensity](images/Edit_cluster_new_intensity.png)
+
+Renamed clusters can be added to the original dataset by clicking `Add Edited Clusters to Input Data` button located in the bottom of the page.
+
+Thank you for your attention.
+
+Please send your questions/recommendations in regard to **Unsupervised Clustering** workflow to
+Andrei Bombin:
+
+bombina2@nih.gov or
+abombin93@gmail.com
