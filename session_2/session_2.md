@@ -1,3 +1,18 @@
+# Spatial Omics Data Analysis with MAWA
+
+## Session 2: Unsupervised clustering
+
+## Session information
+
+- **Date**: Tue 10/22/24, 1-2 PM
+- **Speaker**: Andrei Bombin, Ph.D.
+- **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-unsupervised-phenotyping-with-mawa)**
+- **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
+- **[Video of session material](https://nih-my.sharepoint.com/personal/bombina2_nih_gov/Lists/Unsupervised_clustering/AllItems.aspx?login_hint=bombina2%40nih%2Egov&web=1&referrer=OfficeHome%2EWeb&referrerScenario=StreamStartPage&isDarkMode=false&viewid=1436096b%2D09bb%2D4b14%2Db378%2Da49601de4fcd&playlistLayout=playback&itemId=1)**
+- **[Session slides](/Users/bombina2/github/mawa-training-materials/session_2/Unsupervised_Clustering_Training_Slides.pdf)**
+- **[Recording of session](https://cbiit.webex.com/recordingservice/sites/cbiit/recording/115c5e87cd704749b3773470ff227a09/playback)**
+- All data generously provided by the David Wink lab
+
 **Introduction**
 
 Unsupervised clustering provides several advantages over traditional manual annotation of the multiplex imaging datasets. Cells from all images can be evaluated together, which reduces the amount of time that is required for annotation. In addition, original cell identities are determined by applying computational methods to quantitative phenotypic data, which reduces personal bias associated with manual annotations. Unsupervised clustering workflow primarily consists of two steps, construction of a neighborhood graph and evaluation of the graph with a community detection algorithm. 
