@@ -53,7 +53,7 @@ def main():
 
     if 'T_obs' not in st.session_state:
         st.session_state['T_obs'] = 14
-    T_obs = st.number_input('Observed T:', min_value=0.0, max_value=100.0, key='T_obs', disabled=not plot_T_obs, step=0.1)
+    T_obs = st.number_input('Observed T:', min_value=0, max_value=100, key='T_obs', disabled=not plot_T_obs)
 
     T_obs = None if not plot_T_obs else T_obs
 
