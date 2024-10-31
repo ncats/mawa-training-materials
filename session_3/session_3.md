@@ -7,6 +7,12 @@
   - [TODO](#todo)
   - [Session information](#session-information)
   - [Concepts](#concepts)
+    - [Statistics overview](#statistics-overview)
+    - [Representative experimental setup](#representative-experimental-setup)
+    - [Permutation method](#permutation-method)
+    - [Significance calculation](#significance-calculation)
+    - [Permutation method interpretation](#permutation-method-interpretation)
+    - [Alternative: Poisson method](#alternative-poisson-method)
   - [MAWA demo](#mawa-demo)
 
 ## TODO
@@ -29,15 +35,21 @@
 
 ## Concepts
 
+### Statistics overview
+
 ![Slide1](full/Slide1.PNG)
 
 We will demonstrate how to use hypothesis testing in MAWA to learn about the spatial distributions of two species of cells on a slide to get insight into how the cells interact.
 
 ![Slide2](full/Slide2.PNG)
 
+### Representative experimental setup
+
 ![Slide3](full/Slide3.PNG)
 
 ![Slide4](full/Slide4.PNG)
+
+### Permutation method
 
 ![Slide5](full/Slide5.PNG)
 
@@ -53,7 +65,23 @@ So, for the 5 permutations, we have T* = [13, 15, 14, 9, 12].
 
 Now we will review the usual method for calculating P values relative to a known null distribution of a statistic T such as the one above.
 
+### Significance calculation
+
 ![Slide9](full/Slide9.PNG)
+
+![Slide10](full/Slide10.PNG)
+
+The heatmaps come later, but we wanted to just instill that dark colors on the heatmap will indicate significant results (either a small value of T or a large value of T).
+
+![Slide11](full/Slide11.PNG)
+
+### Permutation method interpretation
+
+![Slide12](full/Slide12.PNG)
+
+### Alternative: Poisson method
+
+![Slide13](full/Slide13.PNG)
 
 ## MAWA demo
 
