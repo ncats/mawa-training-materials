@@ -4,7 +4,6 @@
 
 - [Spatial Omics Data Analysis with MAWA](#spatial-omics-data-analysis-with-mawa)
   - [Session 3: Pairwise spatial analysis using hypothesis testing](#session-3-pairwise-spatial-analysis-using-hypothesis-testing)
-  - [TODO](#todo)
   - [Session information](#session-information)
   - [Concepts](#concepts)
     - [Statistics overview](#statistics-overview)
@@ -16,21 +15,13 @@
     - [Other analysis settings](#other-analysis-settings)
   - [MAWA demo](#mawa-demo)
 
-## TODO
-
-- [ ] Make session script
-- [ ] Make video
-- [ ] Update links in PPT
-- [ ] Update links XXXX in Session information section below
-
 ## Session information
 
 - **Date**: Tue 10/29/24, 1-2 PM
 - **Speaker**: Andrew Weisman, Ph.D.
 - **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-pairwise-spatial-analysis-using-hypothesis-testing-with-mawa)**
 - **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
-- **[Video of session material](XXXX)**
-- **[Session slides](XXXX)**
+- **[Session slides](https://github.com/ncats/mawa-training-materials/blob/develop/session_3/Spatial_Omics_Data_Analysis_with_MAWA_Session_3_Pairwise_spatial_analysis_using_hypothesis_testing.pdf)**
 - **[Recording of session](https://cbiit.webex.com/cbiit/ldr.php?RCID=12b75c9528dfc122df185d93b9281af5)**
 - All data generously provided by the David Wink lab
 
