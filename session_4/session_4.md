@@ -17,7 +17,7 @@
 - **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-neighborhood-analysis-using-spatial-umap-mawa-4)**
 - **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
 - **[Session slides](../session_4/Spatial%20Omics%20Data%20Analysis%20with%20MAWA%204.pdf)**
-- **[Recording of session](https://cbiit.webex.com/cbiit/ldr.php?RCID=12b75c9528dfc122df185d93b9281af5)**
+- **[Recording of session](https://cbiit.webex.com/recordingservice/sites/cbiit/recording/5922295e4e3b4a11a3e2247b222f83b6)**
 - All data generously provided by the David Wink lab
 
 ## Concepts
