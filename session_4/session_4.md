@@ -65,7 +65,51 @@ The final important step to perform before considering Neighborhood Profiles is 
 
 ### Introduction to Neighborhood Profiles
 
-When we were in the early stage of developing MAWA, we worked with Will Heinz of the OMAL group about how we might implement methods from a recent publication.
+![presentation- Giraldo](../session_4/images/presentation_Giraldo1.jpg)
+
+When we were in the early stage of developing MAWA, we worked with Will Heinz of the OMAL group about how we might implement methods from a recent publication. The paper in question was Giraldo et al. 2021, titled Spatial UMAP and Image Cytometry for Topography Immuno-oncology Biomarker Discovery, from the Taube lab at Johns Hopkins. They were determined to identify if certain cell phenotype groupings were more or less prevalent in a cohort of cancer patients that survived or didn’t survive after a period of 5 years.
+
+![presentation- Giraldo2](../session_4/images/presentation_Giraldo2.jpg)
+
+Indeed, in their results, by using a UMAP, which is this 2D histogram we see here, they were able to find samples of cells that had diverging phenotype neighborhood characteristics between surviving and not surviving groups.
+
+![presentation- Neighborhood Profiles Steps](../session_4/images/presentation_steps.jpg)
+
+So what are the steps I am going to take to perform Neighborhood Profiles?
+
+- Step 1 will be to perform a density measure of the phenotyped cells in the sample
+- Step 2 will perform UMAP to reduce the number of variables in our sample
+- Step 3 will be to apply a clustering algorithm to the UMAP to identify areas that are the most similar or the most disperate.
+
+![presentation- tissue](../session_4/images/presentation_tissuecells.jpg)
+
+![presentation- colored](../session_4/images/presentation_coloredcells.jpg)
+
+Let’s say you have a dataset of 100k cells. They could come from multiple tissue samples, from multiple patients. Each of these cells has the x/y coordinates of their centroid on the tissue recorded, as well as the phenotype(s) that the cell expresses. It also helpful to have a handful of other useful outcomes or features for later comparison, like Dead/Alive, Cell Area, patient sex, treatment type, cancerous/noncancerous.
+
+![presentation- distances](../session_4/images/presentation_distances.jpg)
+
+For each cell in the sample, we identify the other cells in direct proximity to that cell. To make it easier to track, we also identify different distances from our target cell to better define proximity. These distances are 25, 50, 100, 150, and 200 microns. Since the counts of these cells might be influenced by how much area they can occupy, it makes sense to measure the number of cells as a density within the area of an annulus surrounding the cell. For ease, let’s refer to those areas as A25m, A50m, A100m, A150m, and A200m. Therefore, the density measures could be described as D25m, D50m, D100m, D150m, and D200m. So, when we measure how the density of cells surrounding our target cell changes, we can begin to understand its unique neighborhood. We can draw a line plot of the overall density change for this particular cell over distance. This line plot consists of 5 measurements. But of course, the change in density of all cell types is less interesting than the change in cell density separated by phenotype. Now things start to get interesting, because we can see how phenotype can play a role in which cell types are included or not included in these predetermined distances.
+
+![presentation- table](../session_4/images/presentation_table.jpg)
+
+If we have 3 phenotypes, well now we have 15 different measurements per cell that we are tracking. If we wanted to try to aggregate these findings, or perform statistical analysis on this dataset, we would have 15 different features (dimensions) to consider. When we have datasets with a high number of dimensions, like this one, it makes sense to try to perform decomposition on the feature set.
+
+![presentation- umap](../session_4/images/presentation-umap.jpg)
+
+There are a myriad of different feature decomposition methods out there, but the one used in the Giraldo et al. 2021 paper was UMAP, which stands for Uniform Manifold Approximation and Projection. It is a fast, easily understandable method that is an alternative over other methods like t-SNE or PCA. In essence, these 15 features reduce down to 2, which make it very easy to perform clustering on.
+
+![presentation- umap2](../session_4/images/presentation-umap2.jpg)
+
+To help drive this point home, let's take a look at another non-cytology dataset. On the left are examples of hand drawn numerals. If you are looking to characterize and distinguish different features you might notice that a 1 has a stroke at the very top of the image, the 3 has two loops on the right side of the image, and a 4 has a horizontal line in the middle. We could analyze these numerals from almost an infinite set of features to descripe and classify them individually. But in order to make sense of this large dataset of features we need to find a way to reduce the dimensions that we are studying. UMAP is perfect for this in fact, this example is used on UMAP's documentation page. When this dataset is passed through the UMAP, you get a figure that looks like the one on the right. They are clusters of written numerals that are distinct from each other. UMAP was able to take all the myriad features that distinguish the numerals from one another, and distill them down to two variables, and still retained all the variance between the features. Now, in this example, all the datapoints are pre-labeled as belonging to the numbers 0-9. If we didn't have those labels, we might be able to make some assumptions about where one set of numerals ends, and another begins. The 0s are predistinct in their cluster in the far right. So is the cluster for numeral 6. If these clusters were not pre-labeled, it might be hard to tell if the clusters for numerals 3 and 8 should be two distinct colors; spatially they are very close together. Indeed a 3 has many of the same features of an 8. So our neighborhood profiles process will add a third step, which is applying a clustering algorithm to the produced UMAP.
+
+![presentation- clustering](../session_4/images/presentation-clustering.jpg)
+
+The clustering algorithm we have chosen to implement is k-means. It is an algorithm that is applied to the 2D UMAP data produced in the previous step. One of the interesting aspects of this sort of clustering, is the user can choose any number of clusters they want to use for the algorithm. There is clearly a possibility of having too few clusters, and if you choose maybe one or two clusters, the center of the chosen cluster might be too far from the average center of the clustered points. This error can be measured and tracked. In fact, as the number of clusters increases, the amount of error decreases. This decrease however has diminishing returns, and there is a limit to how much you can reduce the error with increasing clusters. Tracking this error vs cluster relationship is done with a within-cluster sum of squares (WCSS) figure as seen in this slide. Sometimes called an elbow plot, its generally accepted that the point at the elbow in the plot (in this case 3) is the most effecient number of clusters to choose for your data.
+
+![presentation- AverageNP](../session_4/images/presentation-averageNP.jpg)
+
+So now that we have identified our clusters. We can take a look at where those neighborhoods lie in our spatial coordinates tissue sample. As a reminder, the image on the left is one of our tissue images with the cells colored by phenotype. There are a bunch of different phenotypes throughout this image, but its really hard to discern any sort of pattern or combination of cells that determine a unique neighborhood. However if we were to color the cells by the cluster they belong to, we can see continuous areas that seem to follow a pattern. From the density measurements taken in Step 1, we can now feel confident we can measure a general Neighborhood Profile from all the cells that are assigned to a given cluster.
 
 ### MAWA Demo of Neighborhood Profiles
 
@@ -100,3 +144,41 @@ The second method is a bit nuanced, but it can lead to some interesting scientif
 - A mask is created of the Difference UMAP and only the most strong (dark) blue regions and the most strong (dark) red regions are selected out of the mask. Any lighter blue/red or white regions are masked out.
 - From this mask, two separate kNN clustering analyses are performed; one on the red region (Left hand False condition), and on the blue region (Right hand True condition) of the masked difference UMAP. From each of these clustering steps, the algorithm returns separate clusters (False clusters & True clusters). You can tune the number of clusters produced for each set of False/True clusters.
 
+Again, like the previous clustering method, the scatterplot of the spatial coordinates tissue sample have been updated to reflect the clusters that applied, and this time, there is an extra category of any cells that were not clustered for being overly contributing to either of the two test conditions. Additionally, the neighborhood profiles figure will have more clusters to display and compare against. In fact, in this method, there are so many different way to compare the Neighborhood Profiles, MAWA has pregenerated a great majority of them as a subplot at the bottom of the page.
+
+![MAWA_differences](../session_4/images/MAWA_DifferencesAnalyzer.jpg)
+
+![MAWA_differences2](../session_4/images/MAWA_DifferencesAnalyzer2.jpg)
+
+After completing all the necessary Neighborhood Profiles steps, including choosing one of the two clustering methods, we can further explore our data using the next two pages in this Neighborhood Profiles section on MAWA. The first page is titled UMAP Differences Analyzer. This page allows you to investigate how different features of your dataset, or different phenotypes, change the shape of your UMAP. For example in our demo dataset, you can select a feature in the feature drop down such as Cell Area. This will first split the dataset into two halves, similar to the second clustering method on the previous page. Then it will filter the UMAP by one of those data sets (usually the True or greater than halves). This is a fast way to prototype which parts of the UMAP contribute to features in the dataset, if any. On the lower half of the page is another way to view this filtering method, but it shows both halves of the UMAP split, it shows the difference between them, and it shows how the clusters are arranged on the UMAP. Again this meant to offer an exploratory analysis of your data, and offer a way to ask new questions of your data.
+
+![MAWA_clusters](../session_4/images/MAWA_clustersanalyzer.jpg)
+
+Finally, let's take a look at the last page in the Neighborhood Profiles section, the Clusters Analyzers page. This page has been created to investigate the composition of cell phenotypes in assigned clusters and the incidence of different dataset features appearing in specific cluster types. The Cluster Analyzer page contains two figures generated from the upstream data analysis:
+
+- Phenotype/Cluster Heatmap
+- Incidence Lineplot
+
+The heatmap offers a view of the number of each phenotyped cell located within each cluster. It offers three normalization options for viewing the heatmap:
+
+- No Norm: No normalization is applied to the heatmap. The relative colors for each cell is scaled for all cells in all phenotypes in all clusters. If you were to sum the numbers shown in the grid, they would sum to the total number of cells fit to the spatial-umap model.
+- Norm within Clusters: The grid values are decimal values of the number of cells within a cluster assigned to a given phenotype. In this schema, the relative color of the grid is based on the within-row values. If you were to sum the values of each row, they would sum to 1
+- Norm within Phenotypes: The grid values are decimal values of the number of cells assigned to a specific phenotype within each clister. In this schema, the relative color of the grid is based on the within-column values. If you were to sum the values of each column, they would sum to 1.
+
+The Incidence Lineplot details how the cells within each cluster differ in their expression of the data features recorded alongside the cell positions and phenotype values. These features range from boolean values (True/False), continuous values (-1, 0, 1), and string values('time0'). There are two selection boxes to augment the incidence line plot, and a radio button to select the type of comparison to perform. They are the following:
+
+Feature Select box: Features that can be considered for the Incidence lineplot.
+
+- Cell Counts: The number of cells assigned to a given cluster
+- All other columns in your dataset: Cell Area, Survival, Gender, NORMOXIC, etc
+
+Phenotype Selection box: The phenotype the cells being plotted. The options shown are:
+
+- All Phenotypes: Shows all cells irrespective of phenotype
+- The other phenotypes that have been selected in the Phenotyping stage of the workflow.
+
+DisplayAs Radio Button: How the values of the Feature selectbox should be displayed. This radio button is disabled for the Cell Counts condition, but is enabled for any other Feature selection. The options to be displayed are:
+
+- Count Differences: The value shown on the y-axis is the difference between the number of cells in a cluster in the Y>0 condition - subtracted from the number of cells in that cluster in the Y<0 condition.
+- Percentages: The value shown on the y-axis is the percentage of cells that match a feature condition in that given cluster. If you were to sum all the values across the clusters, they would sum to 100%.
+- Ratios: The value shown on the y-axis is the ratio of r1/r0 where r1 is the precentage of cells that match the feature of condition shown on y>0 in that cluster, and r0 is the percentage of cells that match the feature of the condition show on y<0 in that cluster.
