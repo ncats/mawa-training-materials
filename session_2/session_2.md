@@ -8,7 +8,6 @@
 - **Speaker**: Andrei Bombin, Ph.D.
 - **[Session information](https://bioinformatics.ccr.cancer.gov/btep/classes/spatial-omics-data-analysis-unsupervised-phenotyping-with-mawa)**
 - **[Main training page](https://github.com/ncats/mawa-training-materials/tree/develop)**
-- **[Video of session material](https://nih-my.sharepoint.com/personal/bombina2_nih_gov/Lists/Unsupervised_clustering/AllItems.aspx?login_hint=bombina2%40nih%2Egov&web=1&referrer=OfficeHome%2EWeb&referrerScenario=StreamStartPage&isDarkMode=false&viewid=1436096b%2D09bb%2D4b14%2Db378%2Da49601de4fcd&playlistLayout=playback&itemId=1)**
 - **[Session slides](https://github.com/ncats/mawa-training-materials/blob/develop/session_2/Unsupervised_Clustering_Training_Slides.pdf)**
 - **[Recording of session](https://cbiit.webex.com/recordingservice/sites/cbiit/recording/115c5e87cd704749b3773470ff227a09/playback)**
 - All data generously provided by the David Wink lab
